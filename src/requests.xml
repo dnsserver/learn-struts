@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="request" namespace="/request/repairs" extends="struts-default">
+    	<default-action-ref name="index"></default-action-ref>
+    	<action name="index">
+            <result type="redirectAction">
+                <param name="actionName">step1</param>
+            </result>
+        </action>
+        <action name="*" method="{1}" class="repairs.RepairRequest">
+            <result>/repairs/{1}.jsp</result>
+            <result name="input">/repairs/error.jsp</result>
+        </action>
+        
+    </package>
+</struts>
